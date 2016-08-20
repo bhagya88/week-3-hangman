@@ -29,7 +29,7 @@ var deck = [{
 			},
 			{
 			 word:"brahms",
-			 images:"brahms.jpg",
+			 image:"brahms.jpg",
 			 music:"brahms.mp3"
 			}];
 
@@ -70,7 +70,9 @@ reset();
 
 document.onkeyup = function(event){
 
-	var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+	var userGuess = /[a-zA-z]/;
+
+	userGuess = String.fromCharCode(event.keyCode).toLowerCase();
 
 	var pos = currentWord.indexOf(userGuess);
 	guessesRemaining--;
