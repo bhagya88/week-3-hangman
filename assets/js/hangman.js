@@ -23,7 +23,8 @@ var deck = [{
 			},
 
 			{
-			 word:"haydn",image:"haydn.jpg",
+			 word:"haydn",
+			 image:"haydn.jpg",
 			 music:"haydn.mp3"
 			},
 			{
@@ -91,6 +92,8 @@ document.onkeyup = function(event){
 			wins++;
 			console.log("Good Job!")
 			document.querySelector("#imgClue").setAttribute("src","assets/images/"+deck[currentWordIndex].image);
+			document.querySelector("#audioClue").setAttribute("src","assets/music/"+deck[currentWordIndex].music);
+			document.querySelector("#audioClue").play();
 			console.log("img ")
 			reset();
 
