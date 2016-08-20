@@ -1,9 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Classical Hangman</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Alex+Brush|Denk+One" rel="stylesheet">
 </head>
 <body>
-<p>Index page</p>
+	<header>
+		
+		<div id="gameTheme" class="rotate"><p>Classical</p></div>
+		<div id="gameTitle"><p>Hangman</p></div>
+		 
+	</header>
+
+	<main>
+		<aside >
+			<img id="imgClue" src="assets/img.jpg" alt="Image clue">
+		</aside>
+		<section id="gameStats">
+			<p>Press any key to get Started</p><br><br><br>
+			<p><span id="guessWord">-------</span></p><br><br>
+			<p>Wins: <span id="wins"></span></p>
+			<p>Losses: <span id="loses"></span></p>
+			<p>No of guesses remaining: <span id="guessesRemaining"></span></p>
+			<p>Missed guesses:</p>
+			<p id="wrongGuesses"></p><br>
+
+		</section>
+		
+	</main>
+	<script type="text/javascript" src="assets/js/hangman.js"></script>
 </body>
 </html>

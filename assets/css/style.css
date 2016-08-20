@@ -1,0 +1,63 @@
+body{
+	/*background-image: url("../images/classical-music.jpg");
+	background-size: cover;
+	 -webkit-background-size: cover;
+    -moz-background-size: cover;*/
+   
+    box-sizing: border-box;
+    font-size: 20px;
+    text-align: center;
+    color:rgb(102,74,45);
+
+	}
+
+	header{
+		margin:0 auto;
+		padding:0 auto;
+	}
+
+	#gameTheme{
+		font-size: 20px;
+		text-align: center;
+		font-family: 'Alex Brush', cursive;
+		z-index: 99;
+		color:rgb(224,131,36);
+		font-weight: bold;
+		display: inline-block;
+	}
+
+	#gameTitle{
+		font-size:30px;
+		text-align: center;
+		font-family: 'Denk One', sans-serif;
+		display: inline-block;
+
+	}
+
+	#gameStats{
+		margin-top:10px;
+		font-size: 12px;
+		display:inline-block;
+		border:1px solid red;
+		padding:10px 50px 10px 50px;
+		text-align: center;
+	}
+
+	#imgClue{
+		display:inline-block;
+		width:50px;
+		height: 50px;
+		margin-top: 10px;
+		vertical-align: top;
+	}
+    
+    .rotate {
+
+	-webkit-transform: rotate(316deg);
+    -moz-transform: rotate(316deg);
+    -o-transform: rotate(316deg);
+     writing-mode: lr-tb;
+	
+}
+    
+	
