@@ -65,10 +65,10 @@ function printStats(){
 
 function updateImgMusic(){
 	document.querySelector("#imgClue").setAttribute("src","assets/images/"+deck[currentWordIndex].image);
-					document.querySelector("#audioClue").setAttribute("src","assets/music/"+deck[currentWordIndex].music);
-					document.querySelector("#audioClue").play();
-					currentWord[0]=currentWord[0].toUpperCase();
-					document.querySelector("#composer").innerHTML = "Playing a piece composed by " + currentWord.join("");
+	document.querySelector("#audioClue").setAttribute("src","assets/music/"+deck[currentWordIndex].music);
+	document.querySelector("#audioClue").play();
+	currentWord[0]=currentWord[0].toUpperCase();
+	document.querySelector("#composer").innerHTML = "Playing a piece composed by " + currentWord.join("");
 }
 
 function isAlfa(evt) {
