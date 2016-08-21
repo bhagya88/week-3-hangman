@@ -14,7 +14,8 @@ var curentWordIndex;
 var deck = [{
 			 word:"beethoven",
 			 image:"beethoven.jpg",
-			 music:"beethoven.mp3"
+			 music:"beethoven.mp3",
+			 musicTitle:""
 			},
 			{
 			 word:"mozart",
@@ -62,58 +63,67 @@ function printStats(){
 	document.querySelector("#wrongGuesses").innerHTML = wrongGuessArr.join(",");
 }
 
+function isAlfa(evt) {
+    evt = (evt) ? evt : window.event;
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 65 || charCode > 90) && (charCode < 97 || charCode > 122)) {
+        return false;
+    }
+    return true;
+}
+
 
 document.addEventListener("DOMContentLoaded",function(){
 
 
-reset();
+	reset();
 
-document.onkeyup = function(event){
+	document.onkeyup = function(event){
 
-	var userGuess = /[a-zA-z]/;
+			if(isAlfa(event)){
 
-	userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+			var userGuess = String.fromCharCode(event.keyCode).toLowerCase();	
+			var pos = currentWord.indexOf(userGuess);
+			guessesRemaining--;
 
-	var pos = currentWord.indexOf(userGuess);
-	guessesRemaining--;
+
+			console.log("userGuess = "+userGuess);
+			
+			if( pos !== -1 && guessWord.indexOf(userGuess) === -1 && guessesRemaining >=0 ){
+				while (pos !== -1 ) {
+						 
+						guessWord[pos] = currentWord[pos];
+					 	pos = currentWord.indexOf(userGuess, pos + 1);
+				}
+
+				console.log("guessWord = "+guessWord.join(" "));
 
 
-	console.log("userGuess = "+userGuess);
-	
-	if( pos !== -1 && guessWord.indexOf(userGuess) === -1 && guessesRemaining >=0 ){
-		while (pos !== -1 ) {
-				 
-				guessWord[pos] = currentWord[pos];
-			 	pos = currentWord.indexOf(userGuess, pos + 1);
+				if (currentWord.join(',') === guessWord.join(',') && guessesRemaining >= 0 ){
+					wins++;
+					console.log("Good Job!")
+					document.querySelector("#imgClue").setAttribute("src","assets/images/"+deck[currentWordIndex].image);
+					document.querySelector("#audioClue").setAttribute("src","assets/music/"+deck[currentWordIndex].music);
+					document.querySelector("#audioClue").play();
+					console.log("img ")
+					reset();
+
+				}
+			}else if(pos === -1 && wrongGuessArr.indexOf(userGuess) === -1){
+					wrongGuessArr.push(userGuess);
+			}
+
+			if(guessesRemaining === 0 && currentWord.join(',') !== guessWord.join(',')){
+					loses++;
+					console.log("Try another word!")
+					reset();
+				
+			
+				
+			}
+			printStats();
 		}
-
-		console.log("guessWord = "+guessWord.join(" "));
-
-
-		if (currentWord.join(',') === guessWord.join(',') && guessesRemaining >= 0 ){
-			wins++;
-			console.log("Good Job!")
-			document.querySelector("#imgClue").setAttribute("src","assets/images/"+deck[currentWordIndex].image);
-			document.querySelector("#audioClue").setAttribute("src","assets/music/"+deck[currentWordIndex].music);
-			document.querySelector("#audioClue").play();
-			console.log("img ")
-			reset();
-
-		}
-	}else if(pos === -1 && wrongGuessArr.indexOf(userGuess) === -1){
-			wrongGuessArr.push(userGuess);
 	}
-
-	if(guessesRemaining === 0 && currentWord.join(',') !== guessWord.join(',')){
-			loses++;
-			console.log("Try another word!")
-			reset();
-		
-	
-		
-	}
-	printStats();
-}
 	
 });
 
