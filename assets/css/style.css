@@ -17,6 +17,8 @@ body{
 		padding:0 auto;
 	}
 
+
+
 	#gameTheme{
 		font-size: 20px;
 		text-align: center;
@@ -28,7 +30,7 @@ body{
 	}
 
 	#gameTitle{
-		padding-top: 20px;
+		padding-top: 10px;
 		font-size:30px;
 		text-align: center;
 		font-family: 'Alex Brush', cursive;
@@ -43,12 +45,14 @@ body{
 		border:1px solid rgb(102,74,45);
 		padding:10px 50px 10px 50px;
 		text-align: center;
-		background: rgb(241,195,213);	}
+		background: rgb(115,56,4);
+		color:white;	}
+
 
 	#imgClue{
 		display:inline-block;
-		width:50px;
-		height: 50px;
+		width:80px;
+		height:80px;
 		margin-top: 10px;
 		vertical-align: top;
 	}
