@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded",function(){
 
 	document.onkeyup = function(event){
 
-			if(isAlfa(event)){
+		if(isAlfa(event)){
 
 			var userGuess = String.fromCharCode(event.keyCode).toLowerCase();	
 			var pos = currentWord.indexOf(userGuess);

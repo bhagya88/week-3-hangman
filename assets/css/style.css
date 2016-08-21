@@ -5,7 +5,8 @@ body{
     -moz-background-size: cover;*/
    
     box-sizing: border-box;
-    font-size: 20px;
+    font-size: 5px;
+    font-family: 'Playfair Display', serif;
     text-align: center;
     color:rgb(102,74,45);
 
@@ -19,18 +20,19 @@ body{
 	#gameTheme{
 		font-size: 20px;
 		text-align: center;
-		font-family: 'Alex Brush', cursive;
+		
 		z-index: 99;
 		color:rgb(224,131,36);
 		font-weight: bold;
-		display: inline-block;
+		/*display: inline-block;*/
 	}
 
 	#gameTitle{
+		padding-top: 20px;
 		font-size:30px;
 		text-align: center;
-		font-family: 'Denk One', sans-serif;
-		display: inline-block;
+		font-family: 'Alex Brush', cursive;
+		/*display: inline-block;*/
 
 	}
 
@@ -38,10 +40,10 @@ body{
 		margin-top:10px;
 		font-size: 12px;
 		display:inline-block;
-		border:1px solid red;
+		border:1px solid rgb(102,74,45);
 		padding:10px 50px 10px 50px;
 		text-align: center;
-	}
+		background: rgb(241,195,213);	}
 
 	#imgClue{
 		display:inline-block;
