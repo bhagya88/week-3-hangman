@@ -41,10 +41,11 @@ function reset(){
 	currentWordIndex=Math.floor(Math.random() * deck.length);
 	currentWord = deck[currentWordIndex].word.split("");
 	guessWord = currentWord.slice().fill("_",0,currentWord.length);
-	guessesRemaining =12;
+	guessesRemaining =20;
 	wrongGuessArr = [];
 
 	document.querySelector("#guessWord").innerHTML = guessWord.join(" ");
+	document.querySelector("#guessesRemaining").innerHTML = guessesRemaining;
 	console.log("currentWord = " + currentWord.join(" "));
 	console.log("guessWord = " + guessWord.join(" "));
 
