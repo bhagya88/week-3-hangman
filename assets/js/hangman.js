@@ -63,6 +63,14 @@ function printStats(){
 	document.querySelector("#wrongGuesses").innerHTML = wrongGuessArr.join(",");
 }
 
+function updateImgMusic(){
+	document.querySelector("#imgClue").setAttribute("src","assets/images/"+deck[currentWordIndex].image);
+					document.querySelector("#audioClue").setAttribute("src","assets/music/"+deck[currentWordIndex].music);
+					document.querySelector("#audioClue").play();
+					currentWord[0]=currentWord[0].toUpperCase();
+					document.querySelector("#composer").innerHTML = "Playing a piece composed by " + currentWord.join("");
+}
+
 function isAlfa(evt) {
     evt = (evt) ? evt : window.event;
     var charCode = (evt.which) ? evt.which : evt.keyCode;
@@ -101,10 +109,9 @@ document.addEventListener("DOMContentLoaded",function(){
 
 				if (currentWord.join(',') === guessWord.join(',') && guessesRemaining >= 0 ){
 					wins++;
+					updateImgMusic();
 					console.log("Good Job!")
-					document.querySelector("#imgClue").setAttribute("src","assets/images/"+deck[currentWordIndex].image);
-					document.querySelector("#audioClue").setAttribute("src","assets/music/"+deck[currentWordIndex].music);
-					document.querySelector("#audioClue").play();
+
 					console.log("img ")
 					reset();
 
