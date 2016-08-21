@@ -34,13 +34,14 @@ body{
 		font-size:30px;
 		text-align: center;
 		font-family: 'Alex Brush', cursive;
+		font-weight:bold;
 		/*display: inline-block;*/
 
 	}
 
 	.game-stats{
 		margin-top:10px;
-		font-size: 12px;
+		font-size: 10px;
 		display:inline-block;
 		border:1px solid rgb(102,74,45);
 		padding:10px 50px 10px 50px;
@@ -59,6 +60,7 @@ body{
 
 	.data{
 		color:white;
+		font-size: 12px;
 	}
 
 
