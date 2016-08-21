@@ -1,6 +1,4 @@
-
-
-console.log("hangman");
+console.log("hangman 2.0");
 
 var currentWord = [];
 var guessWord = [];
@@ -15,23 +13,31 @@ var deck = [{
 			 word:"beethoven",
 			 image:"beethoven.jpg",
 			 music:"beethoven.mp3",
-			 musicTitle:""
+			 musicTitle:"Symphony n.9 Op.125 'Choral' in D minor Adagio"
 			},
 			{
 			 word:"mozart",
 			 image:"mozart.jpg",
-			 music:"mozart.mp3"
+			 music:"mozart.mp3",
+			 musicTitle:"Concerto for violin and orchestra n.3 K.216 in G Allegro"
 			},
 
 			{
 			 word:"haydn",
 			 image:"haydn.jpg",
-			 music:"haydn.mp3"
+			 music:"haydn.mp3",
+			 musicTitle:"Sonata for piano n.48 H.16"
 			},
 			{
 			 word:"brahms",
 			 image:"brahms.jpg",
-			 music:"brahms.mp3"
+			 music:"brahms.mp3",
+			 musicTitle:"Ballade for piano n.2 Op.10 in D"
+			},
+			{word:"handel",
+			image:"handel.jpg",
+			music:"handel.mp3",
+			musicTitle:"Water Music 01 Overture"
 			}];
 
 
@@ -69,7 +75,7 @@ function updateImgMusic(){
 	document.querySelector("#audioClue").setAttribute("src","assets/music/"+deck[currentWordIndex].music);
 	document.querySelector("#audioClue").play();
 	currentWord[0]=currentWord[0].toUpperCase();
-	document.querySelector("#composer").innerHTML = "Playing a piece composed by " + currentWord.join("");
+	document.querySelector("#composer").innerHTML = "Playing "+deck[currentWordIndex].musicTitle+" by " + currentWord.join("");
 }
 
 function isAlfa(evt) {
@@ -86,7 +92,6 @@ document.addEventListener("DOMContentLoaded",function(){
 
 
 	reset();
-
 	document.onkeyup = function(event){
 
 		if(isAlfa(event)){
@@ -117,6 +122,7 @@ document.addEventListener("DOMContentLoaded",function(){
 					reset();
 
 				}
+
 			}else if(pos === -1 && wrongGuessArr.indexOf(userGuess) === -1){
 					wrongGuessArr.push(userGuess);
 			}
@@ -138,4 +144,4 @@ document.addEventListener("DOMContentLoaded",function(){
 
 
 
-// })();
+
