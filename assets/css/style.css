@@ -47,7 +47,10 @@ body{
 		padding:10px 50px 10px 50px;
 		text-align: center;
 		background: rgb(115,56,4);
-		color:black;	}
+		color:black;
+		box-shadow: 1px 1px 1px 1px black, 1px 1px 1px 1px black,1px 1px 1px 1px black,1px 1px 1px 1px black;
+
+	}
 
 
 	#imgClue{
