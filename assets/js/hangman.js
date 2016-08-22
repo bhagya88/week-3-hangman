@@ -32,7 +32,7 @@ var deck = [{
 			 word:"brahms",
 			 image:"brahms.jpg",
 			 music:"brahms.mp3",
-			 musicTitle:"Ballade for piano n.2 Op.10 in D"
+			 musicTitle:"Lullaby"
 			},
 			{word:"handel",
 			image:"handel.jpg",
@@ -79,12 +79,15 @@ function updateImgMusic(){
 }
 
 function isAlfa(evt) {
-    evt = (evt) ? evt : window.event;
-    var charCode = (evt.which) ? evt.which : evt.keyCode;
-    if (charCode > 31 && (charCode < 65 || charCode > 90) && (charCode < 97 || charCode > 122)) {
-        return false;
-    }
-    return true;
+    // evt = (evt) ? evt : window.event;
+    // var charCode = (evt.which) ? evt.which : evt.keyCode;
+    // if (charCode > 31 && (charCode < 65 || charCode > 90) && (charCode < 97 || charCode > 122)) {
+    //     return false;
+    // }
+
+    var alphaRegEx =/[a-zA-Z]/;
+
+    return alphaRegEx.execute(String.fromCharCode(event.keyCode));
 }
 
 
