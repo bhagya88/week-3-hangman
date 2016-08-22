@@ -79,15 +79,15 @@ function updateImgMusic(){
 }
 
 function isAlfa(evt) {
-    // evt = (evt) ? evt : window.event;
-    // var charCode = (evt.which) ? evt.which : evt.keyCode;
-    // if (charCode > 31 && (charCode < 65 || charCode > 90) && (charCode < 97 || charCode > 122)) {
-    //     return false;
-    // }
+    evt = (evt) ? evt : window.event;
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 65 || charCode > 90) && (charCode < 97 || charCode > 122)) {
+        return false;
+    }
 
-    var alphaRegEx =/[a-zA-Z]/;
+    
 
-    return alphaRegEx.execute(String.fromCharCode(event.keyCode));
+    return true;
 }
 
 
