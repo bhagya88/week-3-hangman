@@ -78,16 +78,16 @@ function updateImgMusic(){
 	document.querySelector("#composer").innerHTML = "Playing "+deck[currentWordIndex].musicTitle+" by " + currentWord.join("");
 }
 
-function isAlfa(evt) {
-    evt = (evt) ? evt : window.event;
-    var charCode = (evt.which) ? evt.which : evt.keyCode;
-    if (charCode > 31 && (charCode < 65 || charCode > 90) && (charCode < 97 || charCode > 122)) {
-        return false;
-    }
+function isAlfa(userGuess) {
+    // evt = (evt) ? evt : window.event;
+    // var charCode = (evt.which) ? evt.which : evt.keyCode;
+    // if (charCode > 31 && (charCode < 65 || charCode > 90) && (charCode < 97 || charCode > 122)) {
+    //     return false;
+    // }
 
     
 
-    return true;
+    return /^[a-zA-Z]/.test(userGuess);
 }
 
 
@@ -96,10 +96,11 @@ document.addEventListener("DOMContentLoaded",function(){
 
 	reset();
 	document.onkeyup = function(event){
+		var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
 
-		if(isAlfa(event)){
+		if(isAlfa(userGuess)){
 
-			var userGuess = String.fromCharCode(event.keyCode).toLowerCase();	
+				
 			var pos = currentWord.indexOf(userGuess);
 			guessesRemaining--;
 
