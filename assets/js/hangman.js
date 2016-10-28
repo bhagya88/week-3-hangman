@@ -1,5 +1,6 @@
 console.log("hangman 2.0");
 
+//Declare global variables
 var currentWord = [];
 var guessWord = [];
 var wrongGuessArr = [];
@@ -41,15 +42,20 @@ var deck = [{
 			}];
 
 
-
+// resets the game with new word
 function reset(){
-	
+	//get random Index of deck
 	currentWordIndex=Math.floor(Math.random() * deck.length);
+	// sets currentword array
 	currentWord = deck[currentWordIndex].word.split("");
+	// sets guessword array and fills it with '_'
 	guessWord = currentWord.slice().fill("_",0,currentWord.length);
+	//sets max guesses
 	guessesRemaining =20;
+	//if the user guess wrong, it goes into the this array
 	wrongGuessArr = [];
 
+	// writing to the index.html and console
 	document.querySelector("#guessWord").innerHTML = guessWord.join(" ");
 	document.querySelector("#guessesRemaining").innerHTML = guessesRemaining;
 	console.log("currentWord = " + currentWord.join(" "));
@@ -57,8 +63,10 @@ function reset(){
 
 }
 
+// prints wins, loses, guessed remaining, word, wrong guesses on the indexs.html
 function printStats(){
 	
+	// writing to the index.html and console
 	console.log("wins : "+wins);
 	console.log("loses : "+loses);
 	console.log("guessesRemaining : "+guessesRemaining);
@@ -70,7 +78,9 @@ function printStats(){
 	document.querySelector("#wrongGuesses").innerHTML = wrongGuessArr.join(",");
 }
 
+// after the uses guess the word (composer) correctly, it play the music by that composer in the background
 function updateImgMusic(){
+	
 	document.querySelector("#imgClue").setAttribute("src","assets/images/"+deck[currentWordIndex].image);
 	document.querySelector("#audioClue").setAttribute("src","assets/music/"+deck[currentWordIndex].music);
 	document.querySelector("#audioClue").play();
@@ -78,36 +88,37 @@ function updateImgMusic(){
 	document.querySelector("#composer").innerHTML = "Playing "+deck[currentWordIndex].musicTitle+" by " + currentWord.join("");
 }
 
+// lets user to enter only characters
 function isAlfa(userGuess) {
-    // evt = (evt) ? evt : window.event;
-    // var charCode = (evt.which) ? evt.which : evt.keyCode;
-    // if (charCode > 31 && (charCode < 65 || charCode > 90) && (charCode < 97 || charCode > 122)) {
-    //     return false;
-    // }
-
-    
-
     return /^[a-zA-Z]/.test(userGuess);
 }
 
 
+
+
 document.addEventListener("DOMContentLoaded",function(){
 
-
+	// runs reset which gives a new word 
 	reset();
 	document.onkeyup = function(event){
 		var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
 
+		// if the userGuess is a character then proceeds
 		if(isAlfa(userGuess)){
 
-				
+			// check if userGuess is present in the word
 			var pos = currentWord.indexOf(userGuess);
-			guessesRemaining--;
 
+			//decrement guesses
+			guessesRemaining--;
 
 			console.log("userGuess = "+userGuess);
 			
+			// if userGuess is present in the word and guesses are still remaining and userGuess is not present in guess word already
 			if( pos !== -1 && guessWord.indexOf(userGuess) === -1 && guessesRemaining >=0 ){
+
+
+				// populate guess word with letter at right places
 				while (pos !== -1 ) {
 						 
 						guessWord[pos] = currentWord[pos];
@@ -116,7 +127,7 @@ document.addEventListener("DOMContentLoaded",function(){
 
 				console.log("guessWord = "+guessWord.join(" "));
 
-
+				// checks if win happens before guesses run out
 				if (currentWord.join(',') === guessWord.join(',') && guessesRemaining >= 0 ){
 					wins++;
 					updateImgMusic();
@@ -127,10 +138,13 @@ document.addEventListener("DOMContentLoaded",function(){
 
 				}
 
-			}else if(pos === -1 && wrongGuessArr.indexOf(userGuess) === -1){
+			}
+			// if userGuess is not present in word then push the guess to wrong guess array
+			else if(pos === -1 && wrongGuessArr.indexOf(userGuess) === -1){
 					wrongGuessArr.push(userGuess);
 			}
 
+			// check if  a loss occured
 			if(guessesRemaining === 0 && currentWord.join(',') !== guessWord.join(',')){
 					loses++;
 					console.log("Try another word!")
@@ -139,6 +153,7 @@ document.addEventListener("DOMContentLoaded",function(){
 			
 				
 			}
+			//prints all the stats
 			printStats();
 		}
 	}
