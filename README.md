@@ -1,18 +1,28 @@
 # Hangman game
 
 ### Overview
-The theme of this game is Classical music. In the this hangman game, you get to guess the composer of the classical music. It is developed using HTML, CSS and Javascript. 
+The theme of this game is Classical music. In the this hangman game, you get to guess the composer of the classical music.
 
 ###Demo
 [Click to watch the demo](https://thawing-shore-39948.herokuapp.com)
 
-### Hints for testing
+### Technologies used
+* HTML
+* CSS
+* Javascript. 
 
-Available composers: Beethoven, Handel, Haydn, Mozart, Brahms
+### Design used
+* Storing data as objects
+
+### Challenged faced
+* How to display the word as blanks?
+* How to let users to enter only letters?
+
+### Solutions found
+* Used slice and fill methods on Array.prototype.
+* Using regular expression and testing the user input for it solved the problem. 
 
 ### How it works
-
-
 1. It randomly picks a composer to guess from available set of composers and  displays it like this when the game starts:      `_ _ _ _ _ _ _`.
 
 2. The user guesses the letters present in that word. 
@@ -29,8 +39,9 @@ Available composers: Beethoven, Handel, Haydn, Mozart, Brahms
 
 8. When the user guesses the composer correctly, it also plays a song composed by that composer and also displays the picture of the composer.
 
+### Hints for testing
 
-
+Available composers: Beethoven, Handel, Haydn, Mozart, Brahms
 
 ##### Developed by Bhagya
 

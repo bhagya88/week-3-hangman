@@ -5,10 +5,10 @@ var currentWord = [];
 var guessWord = [];
 var wrongGuessArr = [];
 
-var guessesRemaining =20;
+var guessesRemaining = 20;
 var wins = 0;
 var loses = 0;
-var curentWordIndex;
+var currentWordIndex;
 
 var deck = [{
 			 word:"beethoven",
@@ -45,7 +45,7 @@ var deck = [{
 // resets the game with new word
 function reset(){
 	//get random Index of deck
-	currentWordIndex=Math.floor(Math.random() * deck.length);
+	currentWordIndex = Math.floor(Math.random() * deck.length);
 	// sets currentword array
 	currentWord = deck[currentWordIndex].word.split("");
 	// sets guessword array and fills it with '_'
@@ -92,8 +92,6 @@ function updateImgMusic(){
 function isAlfa(userGuess) {
     return /^[a-zA-Z]/.test(userGuess);
 }
-
-
 
 
 document.addEventListener("DOMContentLoaded",function(){
@@ -149,9 +147,6 @@ document.addEventListener("DOMContentLoaded",function(){
 					loses++;
 					console.log("Try another word!")
 					reset();
-				
-			
-				
 			}
 			//prints all the stats
 			printStats();
