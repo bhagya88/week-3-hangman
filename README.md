@@ -1,7 +1,7 @@
 # Hangman game
 
 ### Overview
-The theme of this game is Classical music. In the this hangman game, you get to guess the composer of the classical music.
+The theme of this game is Classical music. In the this hangman game, you get to guess the composer of the classical music. When you guess it right will hear a piece composed by that musician and see his picture.
 
 ###Demo
 [Click to watch the demo](https://thawing-shore-39948.herokuapp.com)
